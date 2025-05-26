@@ -61,7 +61,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0, 0.9);
   backdrop-filter: blur(10px);
   z-index: 1000;
   transition: background 0.3s ease;
@@ -69,6 +69,7 @@ body {
 
 .navbar--scrolled {
   background: linear-gradient(to right, #8b0000, #cc0000);
+  backdrop-filter: blur(8px);
 }
 
 /* Contenedor para logo + toggle */
@@ -213,4 +214,323 @@ body {
 .sobre-mi__bloque p {
   font-size: 1.1rem;
   line-height: 1.6;
+}
+.sobre-mi__titulo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.sobre-mi__icono {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+}
+/* ========== EXPERIENCIA PROFESIONAL ========== */
+.experiencia {
+  padding: 6rem 2rem;
+  background-color: var(--fondo-oscuro);
+  color: var(--texto-claro);
+}
+
+.experiencia__contenedor {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.experiencia__contenedor h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: var(--rojo);
+}
+
+.experiencia__lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.experiencia__item {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #1e1e1e;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.experiencia__empresa {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.experiencia__empresa img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 0.5rem;
+}
+
+.experiencia__empresa span {
+  margin-left: auto;
+  font-size: 0.9rem;
+  color: #bbb;
+}
+/* ========== ESTUDIOS ========== */
+.estudios {
+  padding: 6rem 2rem;
+  background-color: var(--fondo-claro);
+  color: var(--texto-oscuro);
+}
+
+.estudios__contenedor {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.estudios__contenedor h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  color: var(--rojo);
+}
+
+.estudios__lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.estudios__item {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.estudios__institucion {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.estudios__institucion img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 0.5rem;
+}
+
+.estudios__institucion p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.estudios__institucion span {
+  margin-left: auto;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+/* ========== CERTIFICACIONES ========== */
+.certificaciones {
+  padding: 6rem 2rem;
+  background-color: var(--fondo-oscuro);
+  color: var(--texto-claro);
+}
+
+.certificaciones__contenedor {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.certificaciones__contenedor h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--rojo);
+}
+
+.certificaciones__lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.certificaciones__item {
+  margin-bottom: 1.5rem;
+  background: #1e1e1e;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.certificaciones__item strong {
+  font-size: 1.1rem;
+  color: var(--rojo);
+}
+
+.certificaciones__item p {
+  margin: 0.5rem 0 0;
+  color: #ccc;
+  font-size: 0.95rem;
+}
+
+/* ========== SKILLS ========== */
+.habilidades {
+  padding: 6rem 2rem;
+  background: var(--fondo-claro);
+  color: var(--texto-oscuro);
+}
+
+.habilidades__contenedor {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.habilidades__contenedor h2 {
+  color: var(--rojo);
+  margin-bottom: 2rem;
+}
+
+.habilidades__lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0;
+  list-style: none;
+}
+
+.habilidades__item {
+  background: white;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  font-weight: bold;
+}
+
+/* ========== CONTACT ========== */
+.contacto {
+  padding: 6rem 2rem;
+  background: var(--fondo-oscuro);
+  color: var(--texto-claro);
+  text-align: center;
+}
+
+.contacto__contenedor {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contacto h2 {
+  color: var(--rojo);
+  margin-bottom: 2rem;
+}
+
+.contacto__formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.contacto__formulario input,
+.contacto__formulario textarea {
+  padding: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.contacto__formulario textarea {
+  height: 120px;
+  resize: none;
+}
+
+.contacto__formulario button {
+  background: var(--rojo);
+  color: white;
+  padding: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contacto__formulario button:hover {
+  background: #a00000;
+}
+
+.contacto__redes {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.contacto__redes a {
+  color: white;
+  background: #333;
+  padding: 0.7rem 1.5rem;
+  border-radius: 1.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.contacto__redes a:hover {
+  background: var(--rojo);
+}
+
+
+.habilidades__item {
+  background: white;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.habilidades__item img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.contacto__redes {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.contacto__redes a {
+  background: #333;
+  padding: 0.8rem;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.contacto__redes a:hover {
+  background: var(--rojo);
+}
+
+.contacto__redes img {
+  width: 40px;
+  height: 40px;
 }

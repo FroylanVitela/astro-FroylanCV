@@ -3,11 +3,21 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.jsx';
 import Presentation from '../components/Presentation.jsx';
 import About from '../components/About.jsx';
+import Experience from '../components/Experience.jsx';
+import Education from '../components/Education.jsx';
+import Certifications from '../components/Certifications.jsx';
+import Skills from '../components/Skills.jsx';
+import Contact from '../components/Contact.jsx';
 ---
 
 <Layout title="Currículum - Froylán">
-  <Navbar client:load />
-  <br /><br /><br /><br />
-  <Presentation client:load />
-  <About client:visible />
+    <Navbar client:load />
+    <br /><br /><br /><br />
+    <Presentation client:load />
+    <About client:visible />
+    <Experience client:visible />
+    <Education client:visible />
+    <Certifications client:visible />
+    <Skills client:visible />
+    <Contact client:visible />
 </Layout>
