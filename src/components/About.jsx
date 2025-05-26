@@ -29,8 +29,8 @@ export default function About() {
           viewport={{ once: true }}
         >
           <div className="sobre-mi__titulo">
-            <h2>Vitela's</h2>
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRU7A_VOoY3qEmRj0oQzGdtMchMUln_O_ouoQ&s" alt="Logo de Vitela's" className="sobre-mi__icono" />
+            
+            <img src="/images/logo.png" alt="Logo de Vitela's" className="sobre-mi__icono" />
           </div>
           <p>
             Cofundador de <strong>Vitela’s</strong>, un pequeño negocio de personalización de artículos como tazas, termos y más. 
