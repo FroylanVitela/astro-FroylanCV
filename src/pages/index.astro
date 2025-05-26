@@ -2,10 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.jsx';
 import Presentation from '../components/Presentation.jsx';
+import About from '../components/About.jsx';
 ---
 
 <Layout title="Currículum - Froylán">
   <Navbar client:load />
-<br /><br />
+  <br /><br /><br /><br />
   <Presentation client:load />
+  <About client:visible />
 </Layout>

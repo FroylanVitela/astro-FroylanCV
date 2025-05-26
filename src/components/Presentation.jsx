@@ -6,7 +6,7 @@ export default function Presentation() {
     <section className="presentacion" id="inicio">
       <div className="presentacion__contenedor">
         <motion.img
-          src="https://avatars.githubusercontent.com/u/102626778?v=4"
+          src="https://www.webanimales.com/ficheros/2014/03/akita-webanimales.jpg"
           alt="Froylán Vitela"
           className="presentacion__imagen"
           initial={{ opacity: 0, x: -50 }}
@@ -28,3 +28,4 @@ export default function Presentation() {
     </section>
   );
 }
+ 
