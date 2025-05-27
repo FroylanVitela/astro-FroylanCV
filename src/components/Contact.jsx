@@ -38,10 +38,10 @@ export default function Contact() {
         
 
         <div className="contacto__redes">
-          <a href="#" target="_blank">
+          <a href="https://github.com/FroylanVitela" target="_blank">
             <img src="https://img.icons8.com/?size=100&id=52539&format=png&color=000000" alt="GitHub" />
           </a>
-          <a href="#" target="_blank">
+          <a href="https://www.linkedin.com/in/froyl%C3%A1n-vitela-1791482a4/" target="_blank">
             <img src="https://img.icons8.com/?size=100&id=13930&format=png&color=000000" alt="LinkedIn" />
           </a>
           <a href="mailto:vvitelacuevas@gmail.com">
@@ -56,7 +56,7 @@ export default function Contact() {
         </div>
         
         <div className="contacto__cv">
-          <a href="/doc/VFVC-CV.pdf" download className="boton-descarga">
+          <a href="/doc/VFVCCV.pdf" download className="boton-descarga">
             Descargar CV en PDF
           </a>
         </div>

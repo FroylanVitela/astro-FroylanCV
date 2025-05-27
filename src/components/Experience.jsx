@@ -11,18 +11,18 @@ export default function Experience() {
       fecha: "2024 - 2025"
     },
     {
-      empresa: "Dev Freelance",
-      logo: "/img/freelance.png",
-      descripcion:
-        "Diseño y desarrollo de sitios web responsivos y tiendas online personalizadas para pequeños negocios.",
-      fecha: "2023 - Actualidad"
-    },
-    {
       empresa: "Instituto de Educación Aguascalientes",
       logo: "https://lh4.googleusercontent.com/proxy/Prxv2vsriZ83dmheJYBEPJDHRyIxLbA_tlKdZ6ppmPkdSAOjCqlanLLrTVXwVI9Xik51PkNvdhWB4tYemnNB4me2Kw99RH4=w1365-h664",
       descripcion:
-        "Soporte tecnico.",
+      "Atención directa a incidentes técnicos de los empleados. Diagnóstico y resolución de fallas de hardware y software. Canalización de incidencias complejas al personal especializado para su resolución. Experiencia en mantenimiento de equipos y trato con usuarios",
       fecha: "2023 - 2024"
+    },
+    {
+      empresa: "Dev Freelance",
+      logo: "https://img.icons8.com/?size=100&id=CjJ8TXg2lg1j&format=png&color=000000",
+      descripcion:
+        "Diseño y desarrollo de sitios web responsivos y totalmente funcionales, principalmente para proyectos escolares pero con la posibilidad de aplicarlo al mundo real.",
+      fecha: "2023 - Actualidad"
     }
   ];
 

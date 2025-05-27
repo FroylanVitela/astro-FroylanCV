@@ -20,12 +20,17 @@ export default function Presentation() {
           transition={{ duration: 1 }}
         >
           <h1>ISC. Víctor Froylán Vitela Cuevas</h1>
-          <p>
-            Ingeniero en formación con base técnica en programación, enfocado en soluciones tecnológicas funcionales y elegantes.
+          <p style={{ textAlign: "justify" }}>
+            Estudiante de Ingeniería en Sistemas Computacionales con
+            base técnica en programación. Me considero responsable,
+            adaptable y con habilidades sólidas en resolución de problemas,
+            liderazgo y trabajo en equipo. Tengo experiencia tanto en
+            soporte técnico como en atención a usuarios, y busco
+            oportunidades para seguir desarrollándome en el área
+            tecnológica.
           </p>
         </motion.div>
       </div>
     </section>
   );
 }
- 

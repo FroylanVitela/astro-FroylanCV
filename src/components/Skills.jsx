@@ -2,16 +2,15 @@ import { motion } from "framer-motion";
 import "../styles/global.css";
 
 const skills = [
-  { nombre: "JavaScript", icono: "/img/js.png" },
-  { nombre: "React", icono: "/img/react.png" },
-  { nombre: "Astro", icono: "/img/astro.png" },
-  { nombre: "Make", icono: "/img/make.png" },
-  { nombre: "Airtable", icono: "/img/airtable.png" },
-  { nombre: "Discord Webhooks", icono: "/img/discord.png" },
-  { nombre: "HTML", icono: "/img/html.png" },
-  { nombre: "CSS", icono: "/img/css.png" },
-  { nombre: "Git", icono: "/img/git.png" },
-  { nombre: "Figma", icono: "/img/figma.png" }
+  { nombre: "JavaScript", icono: "https://img.icons8.com/?size=100&id=laVIsJnTtYoj&format=png&color=000000" },
+  { nombre: "React", icono: "https://img.icons8.com/?size=100&id=wPohyHO_qO1a&format=png&color=000000" },
+  { nombre: "Make", icono: "https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/make-color.png" },
+  { nombre: "Airtable", icono: "https://img.icons8.com/?size=100&id=elyFOMuEo0iE&format=png&color=000000" },
+  { nombre: "Discord Webhooks", icono: "https://img.icons8.com/?size=100&id=2mIgusGquJFz&format=png&color=000000" },
+  { nombre: "HTML", icono: "https://img.icons8.com/?size=100&id=m5nSBCnsTzEl&format=png&color=000000" },
+  { nombre: "CSS", icono: "https://img.icons8.com/?size=100&id=5cVdiiKKi0vX&format=png&color=000000" },
+  { nombre: "Java", icono: "https://img.icons8.com/?size=100&id=13679&format=png&color=000000" },
+  { nombre: "Figma", icono: "https://img.icons8.com/?size=100&id=zfHRZ6i1Wg0U&format=png&color=000000" }
 ];
 
 export default function Skills() {
