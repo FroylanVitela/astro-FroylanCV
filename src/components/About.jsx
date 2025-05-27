@@ -16,8 +16,13 @@ export default function About() {
             <h2>Sobre mí</h2>
           </div>
           <p>
-            Soy Froylán, estudiante de Ingeniería en Sistemas Computacionales con formación técnica en programación.
-            Me apasiona crear soluciones tecnológicas elegantes, funcionales y con un toque personal. Disfruto del diseño limpio, las interfaces modernas, y automatizar procesos para facilitar la vida de las personas y empresas.
+            Estudiante de Ingeniería en Sistemas Computacionales con
+            base técnica en programación. Me considero responsable,
+            adaptable y con habilidades sólidas en resolución de problemas,
+            liderazgo y trabajo en equipo. Tengo experiencia tanto en
+            soporte técnico como en atención a usuarios, y busco
+            oportunidades para seguir desarrollándome en el área
+            tecnológica.
           </p>
         </motion.div>
 
