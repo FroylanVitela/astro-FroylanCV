@@ -20,7 +20,7 @@ export default function Presentation() {
           transition={{ duration: 1 }}
         >
           <h1>ISC. Víctor Froylán Vitela Cuevas</h1>
-          <p style={{ textAlign: "justify" }}>
+          <p>
             Ingeniero en formación con base técnica en programación, enfocado en soluciones tecnológicas funcionales y elegantes.
           </p>
         </motion.div>
