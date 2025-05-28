@@ -13,16 +13,20 @@ export default function About() {
           viewport={{ once: true }}
         >
           <div className="sobre-mi__titulo">
-            <h2>Sobre mí</h2>
+            <h2>Sobre mí</h2> 
+            <img
+              src="https://img.icons8.com/?size=100&id=ngVgo0VzeU9w&format=png&color=000000"
+              alt="Icono de presentación"
+              className="sobre-mi__icono"
+              style={{ width: "40px", height: "40px" }}
+            />
           </div>
           <p>
             Soy Froylán, un estudiante de Ingeniería en Sistemas Computacionales con
             base técnica en programación. Me considero responsable,
             adaptable y con habilidades sólidas en resolución de problemas,
-            liderazgo y trabajo en equipo. Tengo experiencia tanto en
-            soporte técnico como en atención a usuarios, y busco
-            oportunidades para seguir desarrollándome en el área
-            tecnológica.
+            liderazgo y trabajo en equipo. Mis pasatiempo incluyen jugar videojuegos,
+            ver series y películas, y disfrutar de la música. Me apasiona aprender.
           </p>
         </motion.div>
 
@@ -34,8 +38,12 @@ export default function About() {
           viewport={{ once: true }}
         >
           <div className="sobre-mi__titulo">
-            
-            <img src="/images/logo.png" alt="Logo de Vitela's" className="sobre-mi__icono" />
+            <img
+              src="/images/logo.png"
+              alt="Logo de Vitela's"
+              className="sobre-mi__icono"
+              style={{ width: "40px", height: "40px" }}
+            />
           </div>
           <p>
             Cofundador de <strong>Vitela’s</strong>, un pequeño negocio de personalización de artículos como tazas, termos y más. 

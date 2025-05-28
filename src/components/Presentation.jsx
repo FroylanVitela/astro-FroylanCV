@@ -6,7 +6,7 @@ export default function Presentation() {
     <section className="presentacion" id="inicio">
       <div className="presentacion__contenedor">
         <motion.img
-          src="https://www.webanimales.com/ficheros/2014/03/akita-webanimales.jpg"
+          src="/images/PERFIL.jpg"
           alt="Froylán Vitela"
           className="presentacion__imagen"
           initial={{ opacity: 0, x: -50 }}

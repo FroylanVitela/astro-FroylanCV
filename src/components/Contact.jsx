@@ -33,10 +33,6 @@ export default function Contact() {
 
         {enviado && <p className="contacto__confirmacion">¡Mensaje enviado correctamente!</p>}
 
-
-
-        
-
         <div className="contacto__redes">
           <a href="https://github.com/FroylanVitela" target="_blank">
             <img src="https://img.icons8.com/?size=100&id=52539&format=png&color=000000" alt="GitHub" />
@@ -50,7 +46,7 @@ export default function Contact() {
           <a href="https://wa.me/5214494067829" target="_blank">
             <img src="https://img.icons8.com/?size=100&id=16713&format=png&color=000000" alt="WhatsApp" />
           </a>
-          <a href="https://instagram.com/vitelas.mx" target="_blank">
+          <a href="https://www.instagram.com/froglan_71?igsh=MnVtM2M2eXE3cTg=" target="_blank">
             <img src="https://img.icons8.com/?size=100&id=nj0Uj45LGUYh&format=png&color=000000" alt="Instagram" />
           </a>
         </div>
@@ -61,6 +57,9 @@ export default function Contact() {
           </a>
         </div>
       </div>
+      <footer style={{ color: "#fff", textAlign: "center", marginTop: "2rem", fontSize: "0.9rem" }}>
+        © {new Date().getFullYear()} Froylán Vitela. Todos los derechos reservados.
+      </footer>
     </section>
   );
 }
