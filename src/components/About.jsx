@@ -42,7 +42,7 @@ export default function About() {
               src="/images/logo.png"
               alt="Logo de Vitela's"
               className="sobre-mi__icono"
-              style={{ width: "40px", height: "40px" }}
+              style={{ width: "100px", height: "100px" }}
             />
           </div>
           <p>
