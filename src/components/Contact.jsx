@@ -52,7 +52,7 @@ export default function Contact() {
         </div>
         
         <div className="contacto__cv">
-          <a href="/doc/VFVCCV.pdf" download className="boton-descarga">
+          <a href="/doc/VFVC CV.pdf" download className="boton-descarga">
             Descargar CV en PDF
           </a>
         </div>

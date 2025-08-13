@@ -49,6 +49,7 @@ export default function About() {
             Cofundador de <strong>Vitela’s</strong>, un pequeño negocio de personalización de artículos como tazas, termos y más. 
             Me encargo de la gestión digital, diseño de productos y atención al cliente, combinando tecnología con creatividad.
           </p>
+          <a href="/doc/Catalogo Vitela's 2025.pdf" download className="boton-descarga">Descargar catalogo</a>
         </motion.div>
       </div>
     </section>
