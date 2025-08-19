@@ -10,7 +10,7 @@ export default function Contact() {
     e.preventDefault();
 
     emailjs
-      .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", form.current, "YOUR_PUBLIC_KEY")
+      .sendForm("service_nf4uqc4", "template_hn71x1y", form.current, "a9XSvMyIR-I64LawU")
       .then(() => {
         setEnviado(true);
         form.current.reset();

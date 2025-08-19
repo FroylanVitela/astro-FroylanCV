@@ -8,6 +8,16 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("inicio");
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(1200); // valor por defecto de escritorio
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setWindowWidth(window.innerWidth);
+      const handleResize = () => setWindowWidth(window.innerWidth);
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []);
 
   // Scrollspy
   useEffect(() => {
@@ -71,15 +81,21 @@ export default function Navbar() {
       </div>
 
       <ul className={`navbar__links ${menuOpen ? "navbar__links--open" : ""}`}>
-        {sections.map((id) => (
-          <li key={id}>
+        {sections.map((id, idx) => (
+          <motion.li
+            key={id}
+            initial={false}
+            animate={menuOpen || windowWidth > 768 ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
+            transition={{ duration: 0.25, delay: menuOpen ? 0.05 * idx : 0 }}
+            style={{ listStyle: "none" }}
+          >
             <a
               href={`#${id}`}
               className={activeSection === id ? "active-link" : ""}
             >
               {id.replace("-", " ").replace(/\b\w/g, (l) => l.toUpperCase())}
             </a>
-          </li>
+          </motion.li>
         ))}
       </ul>
     </motion.nav>
