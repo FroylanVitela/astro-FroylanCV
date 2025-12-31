@@ -280,6 +280,31 @@ body {
   font-size: 0.9rem;
   color: #bbb;
 }
+
+.experiencia__descripcion {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.experiencia__descripcion li {
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.experiencia__descripcion .icono {
+  color: var(--rojo);
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.experiencia__item p {
+  text-align: justify;
+  margin: 0;
+  line-height: 1.6;
+}
 /* ========== ESTUDIOS ========== */
 .estudios {
   padding: 6rem 2rem;
