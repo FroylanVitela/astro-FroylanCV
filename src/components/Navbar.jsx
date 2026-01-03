@@ -23,13 +23,17 @@ export default function Navbar() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
+        let maxRatio = 0;
+        let activeId = activeSection;
         for (const entry of entries) {
-          if (entry.isIntersecting) {
-            setActiveSection(entry.target.id);
+          if (entry.intersectionRatio > maxRatio) {
+            maxRatio = entry.intersectionRatio;
+            activeId = entry.target.id;
           }
         }
+        setActiveSection(activeId);
       },
-      { threshold: 0.6 }
+      { threshold: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0] }
     );
 
     sections.forEach((id) => {
@@ -88,6 +92,8 @@ export default function Navbar() {
             animate={menuOpen || windowWidth > 768 ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
             transition={{ duration: 0.25, delay: menuOpen ? 0.05 * idx : 0 }}
             style={{ listStyle: "none" }}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
           >
             <a
               href={`#${id}`}

@@ -150,6 +150,7 @@ body {
 .active-link::before {
   width: 100% !important;
   background: var(--rojo, #cc0000);
+  box-shadow: 0 0 10px rgba(204, 0, 0, 0.5);
 }
 
 /* ==================== RESPONSIVE ==================== */
@@ -631,3 +632,82 @@ body {
 .certificaciones__logo {
    border-radius: 8px;
  }
+
+/* ========== ANIMACIONES GENERALES ========== */
+
+/* Animación de entrada para secciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sobre-mi, .experiencia, .estudios, .certificaciones, .habilidades, .contacto {
+  animation: fadeInUp 1s ease-out;
+}
+
+/* Animación para la imagen de presentación */
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.presentacion__imagen {
+  animation: bounceIn 1.5s ease-out;
+}
+
+/* Hover effects para elementos interactivos */
+.experiencia__item:hover, .estudios__item:hover, .certificaciones__item:hover {
+  transform: translateY(-5px);
+  transition: transform 0.3s ease;
+}
+
+.habilidades__item:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.contacto__redes a:hover {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+/* Animación para el navbar al hacer scroll */
+.navbar {
+  transition: all 0.3s ease;
+}
+
+/* Efecto de pulso para botones */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(204, 0, 0, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(204, 0, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(204, 0, 0, 0);
+  }
+}
+
+.boton-descarga:hover {
+  animation: pulse 1s infinite;
+}
