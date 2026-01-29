@@ -1,27 +1,39 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { getTranslation } from "../utils/i18n";
+import translations from "../i18n/translations.json";
 import "../styles/global.css";
 
 export default function Certifications() {
-  const cursos = [
-    {
-      titulo: "Certificado en SCRUM Fundamentals",
-      institucion: "SCRUMstudy",
-      fecha: "2025",
-      logo: "https://edinburghagile.com/wp-content/uploads/2020/09/scrumstudy-logo.jpg",
-      comprobante: "/doc/ScrumFundamentalsCertified-FroylanVitela-1072655.pdf",
-    },
-    {
-      titulo: "Curso completo de HTML, CSS y JavaScript",
-      institucion: "Inadaptados",
-      fecha: "2024",
-      logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9dWT2-BHSMzY6KkUIRwWW0PRsJorfp43aHQ&s",
-    }
+  const [lang, setLang] = useState("es");
+
+  useEffect(() => {
+    const savedLang = localStorage.getItem("language") || "es";
+    setLang(savedLang);
+
+    const handleLanguageChange = (e) => {
+      setLang(e.detail.lang);
+    };
+
+    window.addEventListener("languageChanged", handleLanguageChange);
+    return () => window.removeEventListener("languageChanged", handleLanguageChange);
+  }, []);
+
+  const logos = [
+    "https://edinburghagile.com/wp-content/uploads/2020/09/scrumstudy-logo.jpg",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9dWT2-BHSMzY6KkUIRwWW0PRsJorfp43aHQ&s"
   ];
+
+  const cursos = translations[lang].certifications.items.map((item, index) => ({
+    ...item,
+    logo: logos[index],
+    comprobante: index === 0 ? "/doc/ScrumFundamentalsCertified-FroylanVitela-1072655.pdf" : null
+  }));
 
   return (
     <section className="certificaciones" id="certificaciones">
       <div className="certificaciones__contenedor">
-        <h2>Cursos y Certificaciones</h2>
+        <h2>{getTranslation("certifications.title", lang)}</h2>
         <ul className="certificaciones__lista">
           {cursos.map((curso, index) => (
             <motion.li
@@ -36,7 +48,7 @@ export default function Certifications() {
                 <div className="certificaciones__logo-contenedor">
                   <img
                     src={curso.logo}
-                    alt={`Logo de ${curso.institucion}`}
+                    alt={`Logo ${curso.institucion}`}
                     className="certificaciones__logo"
                   />
                 </div>
@@ -50,7 +62,7 @@ export default function Certifications() {
                     download
                     className="boton-descarga boton-descarga--mini"
                   >
-                    Descargar comprobante
+                    {getTranslation("certifications.downloadCertificate", lang)}
                   </a>
                 )}
               </div>

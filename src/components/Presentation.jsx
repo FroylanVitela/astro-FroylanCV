@@ -1,7 +1,23 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { getTranslation } from "../utils/i18n";
 import "../styles/global.css"; // Asegúrate de que el archivo existe
 
 export default function Presentation() {
+  const [lang, setLang] = useState("es");
+
+  useEffect(() => {
+    const savedLang = localStorage.getItem("language") || "es";
+    setLang(savedLang);
+
+    const handleLanguageChange = (e) => {
+      setLang(e.detail.lang);
+    };
+
+    window.addEventListener("languageChanged", handleLanguageChange);
+    return () => window.removeEventListener("languageChanged", handleLanguageChange);
+  }, []);
+
   return (
     <section className="presentacion" id="inicio">
       <div className="presentacion__contenedor">
@@ -19,9 +35,9 @@ export default function Presentation() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
-          <h1>ISC. Víctor Froylán Vitela Cuevas</h1>
+          <h1>{getTranslation("presentation.title", lang)}</h1>
           <p>
-            Ingeniero en formación con base técnica en programación, enfocado en soluciones tecnológicas funcionales y elegantes.
+            {getTranslation("presentation.subtitle", lang)}
           </p>
         </motion.div>
       </div>

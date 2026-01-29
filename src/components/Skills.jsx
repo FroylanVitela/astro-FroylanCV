@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { getTranslation } from "../utils/i18n";
 import "../styles/global.css";
 
 const skills = [
@@ -11,20 +13,34 @@ const skills = [
   { nombre: "CSS", icono: "https://img.icons8.com/?size=100&id=5cVdiiKKi0vX&format=png&color=000000" },
   { nombre: "Java", icono: "https://img.icons8.com/?size=100&id=13679&format=png&color=000000" },
   { nombre: "Figma", icono: "https://img.icons8.com/?size=100&id=zfHRZ6i1Wg0U&format=png&color=000000" },
-  { nombre: "Excel", icono: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Microsoft_Office_Excel_%282025%E2%80%93present%29.svg/1166px-Microsoft_Office_Excel_%282025%E2%80%93present%29.svg.png"},
-  { nombre: "Nodejs", icono: "https://www.datocms-assets.com/148875/1739885462-circular-logo-nodejs.png"},
-  { nombre: "SQL", icono: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Microsoft_SQL_Server_2025_icon.svg/1200px-Microsoft_SQL_Server_2025_icon.svg.png"},
-  { nombre: "Access", icono: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Microsoft_Office_Access_%282025-present%29.svg/1051px-Microsoft_Office_Access_%282025-present%29.svg.png"},
-  { nombre: "Astro", icono: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAWmnWIsknNlc0uemt3e9eBHXAf2OibUWb6Q&s"},
-  { nombre: "Python", icono: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Python.svg/350px-Python.svg.png"},
-  { nombre: "Raspberry Pi", icono: "https://www.raspberrypi.com/app/uploads/2020/06/raspberrry_pi_logo.png"}
+  { nombre: "Excel", icono: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Microsoft_Office_Excel_%282025%E2%80%93present%29.svg/1166px-Microsoft_Office_Excel_%282025%E2%80%93present%29.svg.png" },
+  { nombre: "Nodejs", icono: "https://www.datocms-assets.com/148875/1739885462-circular-logo-nodejs.png" },
+  { nombre: "SQL", icono: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Microsoft_SQL_Server_2025_icon.svg/1200px-Microsoft_SQL_Server_2025_icon.svg.png" },
+  { nombre: "Access", icono: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Microsoft_Office_Access_%282025-present%29.svg/1051px-Microsoft_Office_Access_%282025-present%29.svg.png" },
+  { nombre: "Astro", icono: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAWmnWIsknNlc0uemt3e9eBHXAf2OibUWb6Q&s" },
+  { nombre: "Python", icono: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Python.svg/350px-Python.svg.png" },
+  { nombre: "Raspberry Pi", icono: "https://www.raspberrypi.com/app/uploads/2020/06/raspberrry_pi_logo.png" }
 ];
 
 export default function Skills() {
+  const [lang, setLang] = useState("es");
+
+  useEffect(() => {
+    const savedLang = localStorage.getItem("language") || "es";
+    setLang(savedLang);
+
+    const handleLanguageChange = (e) => {
+      setLang(e.detail.lang);
+    };
+
+    window.addEventListener("languageChanged", handleLanguageChange);
+    return () => window.removeEventListener("languageChanged", handleLanguageChange);
+  }, []);
+
   return (
     <section className="habilidades" id="habilidades">
       <div className="habilidades__contenedor">
-        <h2>Habilidades y Herramientas</h2>
+        <h2>{getTranslation("skills.title", lang)}</h2>
         <ul className="habilidades__lista">
           {skills.map((skill, index) => (
             <motion.li

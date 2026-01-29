@@ -1,7 +1,23 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { getTranslation } from "../utils/i18n";
 import "../styles/global.css";
 
 export default function About() {
+  const [lang, setLang] = useState("es");
+
+  useEffect(() => {
+    const savedLang = localStorage.getItem("language") || "es";
+    setLang(savedLang);
+
+    const handleLanguageChange = (e) => {
+      setLang(e.detail.lang);
+    };
+
+    window.addEventListener("languageChanged", handleLanguageChange);
+    return () => window.removeEventListener("languageChanged", handleLanguageChange);
+  }, []);
+
   return (
     <section className="sobre-mi" id="sobre-mi">
       <div className="sobre-mi__contenedor">
@@ -13,20 +29,16 @@ export default function About() {
           viewport={{ once: true }}
         >
           <div className="sobre-mi__titulo">
-            <h2>Sobre mí</h2> 
+            <h2>{getTranslation("about.title", lang)}</h2>
             <img
               src="https://img.icons8.com/?size=100&id=ngVgo0VzeU9w&format=png&color=000000"
-              alt="Icono de presentación"
+              alt="Presentation icon"
               className="sobre-mi__icono"
               style={{ width: "40px", height: "40px" }}
             />
           </div>
           <p>
-            Soy Froylán, un estudiante de Ingeniería en Sistemas Computacionales con
-            base técnica en programación. Me considero responsable,
-            adaptable y con habilidades sólidas en resolución de problemas,
-            liderazgo y trabajo en equipo. Mis pasatiempo incluyen jugar videojuegos,
-            ver series y películas, y disfrutar de la música. Me apasiona aprender.
+            {getTranslation("about.description", lang)}
           </p>
         </motion.div>
 
@@ -46,10 +58,9 @@ export default function About() {
             />
           </div>
           <p>
-            Cofundador de <strong>Vitela’s</strong>, un pequeño negocio de personalización de artículos como tazas, termos y más. 
-            Me encargo de la gestión digital, diseño de productos y atención al cliente, combinando tecnología con creatividad.
+            {getTranslation("about.viela", lang)}
           </p>
-          <a href="/doc/Catalogo Vitela's 2025.pdf" download className="boton-descarga">Descargar catalogo</a>
+          <a href="/doc/Catalogo Vitela's 2025.pdf" download className="boton-descarga">{getTranslation("about.downloadCatalog", lang)}</a>
         </motion.div>
       </div>
     </section>

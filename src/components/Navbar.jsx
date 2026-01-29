@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { getTranslation } from "../utils/i18n";
+import LanguageSwitcher from "./LanguageSwitcher";
 import "../styles/global.css";
 
 const sections = ["inicio", "sobre-mi", "experiencia", "estudios", "certificaciones", "habilidades", "contacto"];
@@ -8,7 +10,8 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("inicio");
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(1200); // valor por defecto de escritorio
+  const [windowWidth, setWindowWidth] = useState(1200);
+  const [lang, setLang] = useState("es");
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -17,6 +20,18 @@ export default function Navbar() {
       window.addEventListener("resize", handleResize);
       return () => window.removeEventListener("resize", handleResize);
     }
+  }, []);
+
+  useEffect(() => {
+    const savedLang = localStorage.getItem("language") || "es";
+    setLang(savedLang);
+
+    const handleLanguageChange = (e) => {
+      setLang(e.detail.lang);
+    };
+
+    window.addEventListener("languageChanged", handleLanguageChange);
+    return () => window.removeEventListener("languageChanged", handleLanguageChange);
   }, []);
 
   // Scrollspy
@@ -70,6 +85,16 @@ export default function Navbar() {
     return () => links.forEach((link) => link.removeEventListener("click", handleClick));
   }, []);
 
+  const sectionKeys = {
+    "inicio": "navbar.home",
+    "sobre-mi": "navbar.about",
+    "experiencia": "navbar.experience",
+    "estudios": "navbar.education",
+    "certificaciones": "navbar.certifications",
+    "habilidades": "navbar.skills",
+    "contacto": "navbar.contact"
+  };
+
   return (
     <motion.nav
       initial={{ y: -50, opacity: 0 }}
@@ -79,6 +104,7 @@ export default function Navbar() {
     >
       <div className="navbar__container">
         <div className="navbar__logo">ISC. Froylán Vitela</div>
+        <LanguageSwitcher />
         <button className="navbar__toggle" onClick={() => setMenuOpen(!menuOpen)}>
           ☰
         </button>
@@ -99,7 +125,7 @@ export default function Navbar() {
               href={`#${id}`}
               className={activeSection === id ? "active-link" : ""}
             >
-              {id.replace("-", " ").replace(/\b\w/g, (l) => l.toUpperCase())}
+              {getTranslation(sectionKeys[id], lang)}
             </a>
           </motion.li>
         ))}

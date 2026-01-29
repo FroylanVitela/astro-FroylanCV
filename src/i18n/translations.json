@@ -1,0 +1,234 @@
+{
+    "es": {
+        "navbar": {
+            "home": "Inicio",
+            "about": "Sobre mí",
+            "experience": "Experiencia",
+            "education": "Estudios",
+            "certifications": "Certificaciones",
+            "skills": "Habilidades",
+            "contact": "Contacto"
+        },
+        "presentation": {
+            "title": "ISC. Víctor Froylán Vitela Cuevas",
+            "subtitle": "Ingeniero en formación con base técnica en programación, enfocado en soluciones tecnológicas funcionales y elegantes."
+        },
+        "about": {
+            "title": "Sobre mí",
+            "description": "Soy Froylán, un estudiante de Ingeniería en Sistemas Computacionales con base técnica en programación. Me considero responsable, adaptable y con habilidades sólidas en resolución de problemas, liderazgo y trabajo en equipo. Mis pasatiempos incluyen jugar videojuegos, ver series y películas, y disfrutar de la música. Me apasiona aprender.",
+            "viela": "Cofundador de Vitela's, un pequeño negocio de personalización de artículos como tazas, termos y más. Me encargo de la gestión digital, diseño de productos y atención al cliente, combinando tecnología con creatividad.",
+            "downloadCatalog": "Descargar catálogo"
+        },
+        "experience": {
+            "title": "Experiencia Profesional",
+            "jobs": [
+                {
+                    "empresa": "Instituto de Educación Aguascalientes - Soporte Técnico",
+                    "descripcion": [
+                        "Atención directa a incidentes técnicos de los empleados",
+                        "Diagnóstico y resolución de fallas de hardware y software",
+                        "Canalización de incidencias complejas al personal especializado para su resolución",
+                        "Experiencia en mantenimiento de equipos y trato con usuarios"
+                    ],
+                    "fecha": "2023 - 2024"
+                },
+                {
+                    "empresa": "Electronic Cats - Automatización de Procesos",
+                    "descripcion": [
+                        "Automatización de procesos internos con Make, Airtable, n8n y Discord Webhooks",
+                        "Implementación de flujos de ventas, notificaciones y CRM"
+                    ],
+                    "fecha": "ENE 2025 - ABR 2025"
+                },
+                {
+                    "empresa": "QMC BEYOND & QUALITY - Soporte Técnico",
+                    "descripcion": [
+                        "Atención directa a incidentes técnicos de los empleados",
+                        "Diagnóstico y resolución de fallas de hardware y software",
+                        "Canalización de incidencias complejas al personal especializado para su resolución",
+                        "Experiencia en mantenimiento de equipos y trato con usuarios",
+                        "Implementación de soluciones tecnológicas para optimizar el rendimiento del equipo",
+                        "Gestión de proyectos tecnológicos y capacitación del personal en nuevas herramientas"
+                    ],
+                    "fecha": "JUL 2025 - SEP 2025"
+                },
+                {
+                    "empresa": "Jatco México - Mejora de procesos",
+                    "descripcion": "Diseño e implementación de soluciones operativas integradas, incluyendo un sistema modular en Excel/VBA para gestión de inventarios y un modelo de base de datos unificado. Coordinación de equipos multidisciplinarios para alinear requerimientos funcionales, optimizar flujos de trabajo y presentar avances estratégicos a nivel ejecutivo.",
+                    "fecha": "SEP 2025 - DIC 2025"
+                },
+                {
+                    "empresa": "Dev Freelance - Desarrollo Web",
+                    "descripcion": [
+                        "Diseño y desarrollo de sitios web responsivos y totalmente funcionales",
+                        "Implementación de tecnologías modernas como React, Next.js y Tailwind CSS",
+                        "Creación de aplicaciones web interactivas y optimizadas",
+                        "Documentación y mantenimiento de proyectos existentes",
+                        "Dockerización de aplicaciones para facilitar el despliegue y la escalabilidad"
+                    ],
+                    "fecha": "2023 - Actualidad"
+                }
+            ]
+        },
+        "education": {
+            "title": "Estudios",
+            "studies": [
+                {
+                    "institucion": "Universidad Politécnica de Aguascalientes",
+                    "nivel": "Ingeniería en Sistemas Computacionales",
+                    "periodo": "2022 - Actualidad"
+                },
+                {
+                    "institucion": "CBTis No. 168",
+                    "nivel": "Técnico en Programación",
+                    "periodo": "2019 - 2022"
+                }
+            ]
+        },
+        "certifications": {
+            "title": "Cursos y Certificaciones",
+            "downloadCertificate": "Descargar comprobante",
+            "items": [
+                {
+                    "titulo": "Certificado en SCRUM Fundamentals",
+                    "institucion": "SCRUMstudy",
+                    "fecha": "2025"
+                },
+                {
+                    "titulo": "Curso completo de HTML, CSS y JavaScript",
+                    "institucion": "Inadaptados",
+                    "fecha": "2024"
+                }
+            ]
+        },
+        "skills": {
+            "title": "Habilidades y Herramientas"
+        },
+        "contact": {
+            "title": "Contacto",
+            "namePlaceholder": "Tu nombre",
+            "emailPlaceholder": "Tu correo",
+            "messagePlaceholder": "Tu mensaje",
+            "send": "Enviar",
+            "success": "¡Mensaje enviado correctamente!",
+            "downloadCV": "Descargar CV en PDF",
+            "rights": "Todos los derechos reservados"
+        }
+    },
+    "en": {
+        "navbar": {
+            "home": "Home",
+            "about": "About Me",
+            "experience": "Experience",
+            "education": "Education",
+            "certifications": "Certifications",
+            "skills": "Skills",
+            "contact": "Contact"
+        },
+        "presentation": {
+            "title": "CSE. Víctor Froylán Vitela Cuevas",
+            "subtitle": "Engineer in training with technical foundation in programming, focused on functional and elegant technological solutions."
+        },
+        "about": {
+            "title": "About Me",
+            "description": "I'm Froylán, a Computer Systems Engineering student with a technical foundation in programming. I consider myself responsible, adaptable, and with solid problem-solving skills, leadership, and teamwork abilities. My hobbies include playing video games, watching series and movies, and enjoying music. I'm passionate about learning.",
+            "viela": "Co-founder of Vitela's, a small business specializing in item personalization such as mugs, thermoses and more. I'm responsible for digital management, product design and customer service, combining technology with creativity.",
+            "downloadCatalog": "Download Catalog"
+        },
+        "experience": {
+            "title": "Professional Experience",
+            "jobs": [
+                {
+                    "empresa": "Instituto de Educación Aguascalientes - Technical Support",
+                    "descripcion": [
+                        "Direct attention to employee technical incidents",
+                        "Diagnosis and resolution of hardware and software failures",
+                        "Channeling complex incidents to specialized staff for resolution",
+                        "Experience in equipment maintenance and user interaction"
+                    ],
+                    "fecha": "2023 - 2024"
+                },
+                {
+                    "empresa": "Electronic Cats - Process Automation",
+                    "descripcion": [
+                        "Internal process automation with Make, Airtable, n8n and Discord Webhooks",
+                        "Implementation of sales flows, notifications and CRM"
+                    ],
+                    "fecha": "JAN 2025 - APR 2025"
+                },
+                {
+                    "empresa": "QMC BEYOND & QUALITY - Technical Support",
+                    "descripcion": [
+                        "Direct attention to employee technical incidents",
+                        "Diagnosis and resolution of hardware and software failures",
+                        "Channeling complex incidents to specialized staff for resolution",
+                        "Experience in equipment maintenance and user interaction",
+                        "Implementation of technological solutions to optimize team performance",
+                        "Management of technology projects and staff training in new tools"
+                    ],
+                    "fecha": "JUL 2025 - SEP 2025"
+                },
+                {
+                    "empresa": "Jatco México - Process Improvement",
+                    "descripcion": "Design and implementation of integrated operational solutions, including a modular Excel/VBA system for inventory management and a unified database model. Coordination of multidisciplinary teams to align functional requirements, optimize workflows and present strategic progress at executive level.",
+                    "fecha": "SEP 2025 - DEC 2025"
+                },
+                {
+                    "empresa": "Freelance Dev - Web Development",
+                    "descripcion": [
+                        "Design and development of responsive and fully functional websites",
+                        "Implementation of modern technologies such as React, Next.js and Tailwind CSS",
+                        "Creation of interactive and optimized web applications",
+                        "Documentation and maintenance of existing projects",
+                        "Containerization of applications to facilitate deployment and scalability"
+                    ],
+                    "fecha": "2023 - Present"
+                }
+            ]
+        },
+        "education": {
+            "title": "Education",
+            "studies": [
+                {
+                    "institucion": "Universidad Politécnica de Aguascalientes",
+                    "nivel": "Computer Systems Engineering",
+                    "periodo": "2022 - Present"
+                },
+                {
+                    "institucion": "CBTis No. 168",
+                    "nivel": "Programming Technician",
+                    "periodo": "2019 - 2022"
+                }
+            ]
+        },
+        "certifications": {
+            "title": "Courses and Certifications",
+            "downloadCertificate": "Download Certificate",
+            "items": [
+                {
+                    "titulo": "Certified in SCRUM Fundamentals",
+                    "institucion": "SCRUMstudy",
+                    "fecha": "2025"
+                },
+                {
+                    "titulo": "Complete HTML, CSS and JavaScript Course",
+                    "institucion": "Inadaptados",
+                    "fecha": "2024"
+                }
+            ]
+        },
+        "skills": {
+            "title": "Skills and Tools"
+        },
+        "contact": {
+            "title": "Contact",
+            "namePlaceholder": "Your name",
+            "emailPlaceholder": "Your email",
+            "messagePlaceholder": "Your message",
+            "send": "Send",
+            "success": "Message sent successfully!",
+            "downloadCV": "Download CV as PDF",
+            "rights": "All rights reserved"
+        }
+    }
+}

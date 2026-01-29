@@ -1,26 +1,38 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
+import { getTranslation } from "../utils/i18n";
+import translations from "../i18n/translations.json";
 import "../styles/global.css";
 
 export default function Education() {
-const estudios = [
-    {
-        institucion: "Universidad Politécnica de Aguascalientes",
-        logo: "https://sii.upa.edu.mx/image/icono/logo_upp.png",
-        nivel: "Ingeniería en Sistemas Computacionales",
-        periodo: "2022 - Actualidad"
-    },
-    {
-        institucion: "CBTis No. 168",
-        logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5VqkL5o4HuQvfF2K0gOvQRASTNOI6cYDwJA&s",
-        nivel: "Técnico en Programación",
-        periodo: "2019 - 2022"
-    }
-];
+  const [lang, setLang] = useState("es");
+
+  useEffect(() => {
+    const savedLang = localStorage.getItem("language") || "es";
+    setLang(savedLang);
+
+    const handleLanguageChange = (e) => {
+      setLang(e.detail.lang);
+    };
+
+    window.addEventListener("languageChanged", handleLanguageChange);
+    return () => window.removeEventListener("languageChanged", handleLanguageChange);
+  }, []);
+
+  const logos = [
+    "https://sii.upa.edu.mx/image/icono/logo_upp.png",
+    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5VqkL5o4HuQvfF2K0gOvQRASTNOI6cYDwJA&s"
+  ];
+
+  const estudios = translations[lang].education.studies.map((study, index) => ({
+    ...study,
+    logo: logos[index]
+  }));
 
   return (
     <section className="estudios" id="estudios">
       <div className="estudios__contenedor">
-        <h2>Estudios</h2>
+        <h2>{getTranslation("education.title", lang)}</h2>
         <ul className="estudios__lista">
           {estudios.map((estudio, index) => (
             <motion.li
@@ -32,7 +44,7 @@ const estudios = [
               viewport={{ once: true }}
             >
               <div className="estudios__institucion">
-                <img src={estudio.logo} alt={`Logo de ${estudio.institucion}`} />
+                <img src={estudio.logo} alt={`Logo ${estudio.institucion}`} />
                 <div>
                   <strong>{estudio.institucion}</strong>
                   <p>{estudio.nivel}</p>
