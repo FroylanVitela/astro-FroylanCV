@@ -33,7 +33,14 @@ export default function Certifications() {
   return (
     <section className="certificaciones" id="certificaciones">
       <div className="certificaciones__contenedor">
-        <h2>{getTranslation("certifications.title", lang)}</h2>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          {getTranslation("certifications.title", lang)}
+        </motion.h2>
         <ul className="certificaciones__lista">
           {cursos.map((curso, index) => (
             <motion.li
@@ -43,6 +50,7 @@ export default function Certifications() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
+              whileHover={{ y: -4 }}
             >
               {curso.logo && (
                 <div className="certificaciones__logo-contenedor">

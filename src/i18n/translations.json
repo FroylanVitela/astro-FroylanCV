@@ -5,13 +5,14 @@
             "about": "Sobre mí",
             "experience": "Experiencia",
             "education": "Estudios",
+            "projects": "Proyectos",
             "certifications": "Certificaciones",
             "skills": "Habilidades",
             "contact": "Contacto"
         },
         "presentation": {
             "title": "ISC. Víctor Froylán Vitela Cuevas",
-            "subtitle": "Ingeniero en formación con base técnica en programación, enfocado en soluciones tecnológicas funcionales y elegantes."
+            "subtitle": "Construyo soluciones tecnológicas que combinan funcionalidad y creatividad. Desarrollo aplicaciones web, automatizo procesos y transformo ideas en herramientas que realmente funcionan."
         },
         "about": {
             "title": "Sobre mí",
@@ -85,6 +86,39 @@
                 }
             ]
         },
+        "projects": {
+            "title": "Proyectos",
+            "subtitle": "Una selección de proyectos en los que he trabajado",
+            "liveDemo": "Ver demo",
+            "sourceCode": "Código",
+            "internalProject": "Proyecto interno",
+            "schoolProject": "Proyecto escolar",
+            "visitWebsite": "Visitar sitio",
+            "stellarStock": {
+                "title": "Stellar Stock",
+                "description": "Simulación de un almacén de supermercado y punto de venta desarrollado con tecnología MERN. Incluye gestión de inventario, ventas, reportes y panel de administración."
+            },
+            "vitelaWarehouse": {
+                "title": "Mi Almacén (Vitela)",
+                "description": "Sistema de gestión de almacén para mi negocio Vitela's. Desarrollado con React para el frontend y Airtable como backend, incluyendo controladores, routers y middleware personalizados."
+            },
+            "vitelasWebsite": {
+                "title": "Sitio oficial Vitela's",
+                "description": "Página web oficial del negocio Vitela's, enfocada en mostrar productos y catálogo de personalización. Desarrollada completamente con React y desplegada en Netlify."
+            },
+            "gamezone": {
+                "title": "Gamezone",
+                "description": "Plataforma de comercio electrónico para gamers que ofrece una alternativa para la compra de videojuegos y complementos. Sistema de punto de venta completo con carrito y pagos."
+            },
+            "jatcoInventory": {
+                "title": "Sistema de Inventario Jatco",
+                "description": "Software de gestión de flujos de entrada y salida de almacén en Jatco México. Incluye control de puntos de reorden, macro en Excel/VBA como frontend y Access/SQL para almacenamiento de datos."
+            },
+            "surveySystem": {
+                "title": "Sistema de Encuestas",
+                "description": "Sistema de gestión de encuestas desarrollado con Oracle Apex y backend en PL/SQL. Motor dinámico de encuestas con gestión de clientes, proyectos, tipos de preguntas y dashboard de resultados con gráficos."
+            }
+        },
         "certifications": {
             "title": "Cursos y Certificaciones",
             "downloadCertificate": "Descargar comprobante",
@@ -121,13 +155,14 @@
             "about": "About Me",
             "experience": "Experience",
             "education": "Education",
+            "projects": "Projects",
             "certifications": "Certifications",
             "skills": "Skills",
             "contact": "Contact"
         },
         "presentation": {
             "title": "CSE. Víctor Froylán Vitela Cuevas",
-            "subtitle": "Engineer in training with technical foundation in programming, focused on functional and elegant technological solutions."
+            "subtitle": "I build technological solutions that combine functionality and creativity. I develop web applications, automate processes, and transform ideas into tools that actually work."
         },
         "about": {
             "title": "About Me",
@@ -200,6 +235,39 @@
                     "periodo": "2019 - 2022"
                 }
             ]
+        },
+        "projects": {
+            "title": "Projects",
+            "subtitle": "A selection of projects I've worked on",
+            "liveDemo": "Live demo",
+            "sourceCode": "Source",
+            "internalProject": "Internal project",
+            "schoolProject": "School project",
+            "visitWebsite": "Visit website",
+            "stellarStock": {
+                "title": "Stellar Stock",
+                "description": "Supermarket warehouse and point of sale simulation developed with MERN technology. Includes inventory management, sales, reports, and admin panel."
+            },
+            "vitelaWarehouse": {
+                "title": "My Warehouse (Vitela)",
+                "description": "Warehouse management system for my Vitela's business. Built with React for frontend and Airtable as backend, including custom controllers, routers, and middleware."
+            },
+            "vitelasWebsite": {
+                "title": "Vitela's Official Website",
+                "description": "Official website for Vitela's business, focused on showcasing products and personalization catalog. Developed entirely with React and deployed on Netlify."
+            },
+            "gamezone": {
+                "title": "Gamezone",
+                "description": "E-commerce platform for gamers offering an alternative for purchasing video games and add-ons. Full point of sale system with cart and payments."
+            },
+            "jatcoInventory": {
+                "title": "Jatco Inventory System",
+                "description": "Software for managing inbound and outbound warehouse flows at Jatco Mexico. Includes reorder point control, Excel/VBA macros as frontend and Access/SQL for data storage."
+            },
+            "surveySystem": {
+                "title": "Survey Management System",
+                "description": "Survey management system developed with Oracle Apex and PL/SQL backend. Dynamic survey engine with client management, projects, question types and results dashboard with charts."
+            }
         },
         "certifications": {
             "title": "Courses and Certifications",

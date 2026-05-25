@@ -4,7 +4,16 @@ import { getTranslation } from "../utils/i18n";
 import LanguageSwitcher from "./LanguageSwitcher";
 import "../styles/global.css";
 
-const sections = ["inicio", "sobre-mi", "experiencia", "estudios", "certificaciones", "habilidades", "contacto"];
+const sections = [
+  "inicio", 
+  "sobre-mi", 
+  "experiencia", 
+  "estudios",
+  "proyectos",
+  "certificaciones", 
+  "habilidades", 
+  "contacto"
+];
 
 export default function Navbar() {
   const [activeSection, setActiveSection] = useState("inicio");
@@ -90,6 +99,7 @@ export default function Navbar() {
     "sobre-mi": "navbar.about",
     "experiencia": "navbar.experience",
     "estudios": "navbar.education",
+    "proyectos": "navbar.projects",
     "certificaciones": "navbar.certifications",
     "habilidades": "navbar.skills",
     "contacto": "navbar.contact"
@@ -105,8 +115,12 @@ export default function Navbar() {
       <div className="navbar__container">
         <div className="navbar__logo">ISC. Froylán Vitela</div>
         <LanguageSwitcher />
-        <button className="navbar__toggle" onClick={() => setMenuOpen(!menuOpen)}>
-          ☰
+        <button 
+          className="navbar__toggle" 
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          {menuOpen ? "✕" : "☰"}
         </button>
       </div>
 

@@ -35,7 +35,14 @@ export default function Experience() {
   return (
     <section className="experiencia" id="experiencia">
       <div className="experiencia__contenedor">
-        <h2>{getTranslation("experience.title", lang)}</h2>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          {getTranslation("experience.title", lang)}
+        </motion.h2>
         <ul className="experiencia__lista">
           {trabajos.map((trabajo, index) => (
             <motion.li
@@ -43,8 +50,9 @@ export default function Experience() {
               className="experiencia__item"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
+              whileHover={{ y: -4 }}
             >
               <div className="experiencia__empresa">
                 <img src={trabajo.logo} alt={`Logo ${trabajo.empresa}`} />

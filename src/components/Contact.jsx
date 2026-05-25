@@ -48,19 +48,19 @@ export default function Contact() {
         {enviado && <p className="contacto__confirmacion">{getTranslation("contact.success", lang)}</p>}
 
         <div className="contacto__redes">
-          <a href="https://github.com/FroylanVitela" target="_blank">
+          <a href="https://github.com/FroylanVitela" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
             <img src="https://img.icons8.com/?size=100&id=52539&format=png&color=000000" alt="GitHub" />
           </a>
-          <a href="https://www.linkedin.com/in/froyl%C3%A1n-vitela-1791482a4/" target="_blank">
+          <a href="https://www.linkedin.com/in/froyl%C3%A1n-vitela-1791482a4/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <img src="https://img.icons8.com/?size=100&id=13930&format=png&color=000000" alt="LinkedIn" />
           </a>
-          <a href="mailto:vvitelacuevas@gmail.com">
+          <a href="mailto:vvitelacuevas@gmail.com" aria-label="Email">
             <img src="https://img.icons8.com/?size=100&id=P7UIlhbpWzZm&format=png&color=000000" alt="Email" />
           </a>
-          <a href="https://wa.me/5214494067829" target="_blank">
+          <a href="https://wa.me/5214494067829" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
             <img src="https://img.icons8.com/?size=100&id=16713&format=png&color=000000" alt="WhatsApp" />
           </a>
-          <a href="https://www.instagram.com/froglan_71?igsh=MnVtM2M2eXE3cTg=" target="_blank">
+          <a href="https://www.instagram.com/froglan_71?igsh=MnVtM2M2eXE3cTg=" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
             <img src="https://img.icons8.com/?size=100&id=nj0Uj45LGUYh&format=png&color=000000" alt="Instagram" />
           </a>
         </div>
@@ -74,10 +74,11 @@ export default function Contact() {
             {getTranslation("contact.downloadCV", lang)}
           </a>
         </div>
+
+        <footer className="contacto__footer">
+          © {new Date().getFullYear()} Froylán Vitela. {getTranslation("contact.rights", lang)}
+        </footer>
       </div>
-      <footer style={{ color: "#fff", textAlign: "center", marginTop: "2rem", fontSize: "0.9rem" }}>
-        © {new Date().getFullYear()} Froylán Vitela. {getTranslation("contact.rights", lang)}
-      </footer>
     </section>
   );
 }

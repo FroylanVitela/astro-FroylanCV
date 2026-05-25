@@ -25,17 +25,17 @@ export default function About() {
           className="sobre-mi__bloque"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
+          whileHover={{ y: -4 }}
         >
           <div className="sobre-mi__titulo">
-            <h2>{getTranslation("about.title", lang)}</h2>
             <img
-              src="https://img.icons8.com/?size=100&id=ngVgo0VzeU9w&format=png&color=000000"
+              src="https://img.icons8.com/?size=100&id=ngVgo0VzeU9w&format=png&color=cc0000"
               alt="Presentation icon"
-              className="sobre-mi__icono"
-              style={{ width: "40px", height: "40px" }}
+              className="sobre-mi__icono sobre-mi__icono--small"
             />
+            <h2>{getTranslation("about.title", lang)}</h2>
           </div>
           <p>
             {getTranslation("about.description", lang)}
@@ -46,21 +46,23 @@ export default function About() {
           className="sobre-mi__bloque"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 0.6, delay: 0.15 }}
           viewport={{ once: true }}
+          whileHover={{ y: -4 }}
         >
           <div className="sobre-mi__titulo">
             <img
               src="/images/logo.png"
               alt="Logo de Vitela's"
               className="sobre-mi__icono"
-              style={{ width: "100px", height: "100px" }}
             />
           </div>
           <p>
             {getTranslation("about.viela", lang)}
           </p>
-          <a href="/doc/Catalogo Vitela's 2025.pdf" download className="boton-descarga">{getTranslation("about.downloadCatalog", lang)}</a>
+          <a href="/doc/Catalogo Vitela's 2025.pdf" download className="boton-descarga">
+            {getTranslation("about.downloadCatalog", lang)}
+          </a>
         </motion.div>
       </div>
     </section>

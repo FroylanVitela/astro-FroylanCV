@@ -32,7 +32,14 @@ export default function Education() {
   return (
     <section className="estudios" id="estudios">
       <div className="estudios__contenedor">
-        <h2>{getTranslation("education.title", lang)}</h2>
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          {getTranslation("education.title", lang)}
+        </motion.h2>
         <ul className="estudios__lista">
           {estudios.map((estudio, index) => (
             <motion.li
@@ -40,8 +47,9 @@ export default function Education() {
               className="estudios__item"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
+              transition={{ duration: 0.5, delay: index * 0.15 }}
               viewport={{ once: true }}
+              whileHover={{ y: -4 }}
             >
               <div className="estudios__institucion">
                 <img src={estudio.logo} alt={`Logo ${estudio.institucion}`} />
