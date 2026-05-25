@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { getTranslation } from "../utils/i18n";
 import LanguageSwitcher from "./LanguageSwitcher";
 import "../styles/global.css";
@@ -19,17 +19,7 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("inicio");
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [windowWidth, setWindowWidth] = useState(1200);
   const [lang, setLang] = useState("es");
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      setWindowWidth(window.innerWidth);
-      const handleResize = () => setWindowWidth(window.innerWidth);
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }
-  }, []);
 
   useEffect(() => {
     const savedLang = localStorage.getItem("language") || "es";
@@ -94,6 +84,18 @@ export default function Navbar() {
     return () => links.forEach((link) => link.removeEventListener("click", handleClick));
   }, []);
 
+  // Bloquear scroll cuando el menú está abierto
+  useEffect(() => {
+    if (menuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [menuOpen]);
+
   const sectionKeys = {
     "inicio": "navbar.home",
     "sobre-mi": "navbar.about",
@@ -106,44 +108,86 @@ export default function Navbar() {
   };
 
   return (
-    <motion.nav
-      initial={{ y: -50, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}
-    >
-      <div className="navbar__container">
-        <div className="navbar__logo">ISC. Froylán Vitela</div>
-        <LanguageSwitcher />
-        <button 
-          className="navbar__toggle" 
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
-        >
-          {menuOpen ? "✕" : "☰"}
-        </button>
-      </div>
-
-      <ul className={`navbar__links ${menuOpen ? "navbar__links--open" : ""}`}>
-        {sections.map((id, idx) => (
-          <motion.li
-            key={id}
-            initial={false}
-            animate={menuOpen || windowWidth > 768 ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
-            transition={{ duration: 0.25, delay: menuOpen ? 0.05 * idx : 0 }}
-            style={{ listStyle: "none" }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <a
-              href={`#${id}`}
-              className={activeSection === id ? "active-link" : ""}
+    <>
+      <motion.nav
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}
+      >
+        <div className="navbar__container">
+          <div className="navbar__logo">ISC. Froylán Vitela</div>
+          <div className="navbar__actions">
+            <LanguageSwitcher />
+            <button 
+              className={`navbar__toggle ${menuOpen ? "navbar__toggle--open" : ""}`}
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle menu"
+              aria-expanded={menuOpen}
             >
-              {getTranslation(sectionKeys[id], lang)}
-            </a>
-          </motion.li>
-        ))}
-      </ul>
-    </motion.nav>
+              <span className="navbar__toggle-line"></span>
+              <span className="navbar__toggle-line"></span>
+              <span className="navbar__toggle-line"></span>
+            </button>
+          </div>
+        </div>
+      </motion.nav>
+
+      {/* Overlay oscuro detrás del menú */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            className="navbar__overlay"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setMenuOpen(false)}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Menú drawer desde la derecha */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            className="navbar__drawer"
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          >
+            <div className="navbar__drawer-header">
+              <span className="navbar__drawer-logo">Menú</span>
+              <button 
+                className="navbar__drawer-close"
+                onClick={() => setMenuOpen(false)}
+                aria-label="Close menu"
+              >
+                ✕
+              </button>
+            </div>
+            <ul className="navbar__drawer-links">
+              {sections.map((id, idx) => (
+                <motion.li
+                  key={id}
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: idx * 0.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <a
+                    href={`#${id}`}
+                    className={activeSection === id ? "active-link" : ""}
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {getTranslation(sectionKeys[id], lang)}
+                  </a>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

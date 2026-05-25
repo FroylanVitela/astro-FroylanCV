@@ -205,14 +205,51 @@ body {
   text-transform: uppercase;
 }
 
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .navbar__toggle {
   display: none;
-  font-size: 1.8rem;
-  color: white;
+  width: 40px;
+  height: 40px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 0.5rem;
+  padding: 8px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  border-radius: 8px;
+  transition: var(--transicion);
+}
+
+.navbar__toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar__toggle-line {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: white;
+  border-radius: 2px;
+  transition: var(--transicion);
+}
+
+.navbar__toggle--open .navbar__toggle-line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.navbar__toggle--open .navbar__toggle-line:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar__toggle--open .navbar__toggle-line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
 }
 
 .navbar__links {
@@ -271,36 +308,118 @@ body {
 }
 
 /* ============================================
+   HAMBURGER MENU - DRAWER
+   ============================================ */
+
+.navbar__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 998;
+}
+
+.navbar__drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 280px;
+  max-width: 80%;
+  height: 100%;
+  background: linear-gradient(180deg, #1a1a1a 0%, #121212 100%);
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.navbar__drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar__drawer-logo {
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.navbar__drawer-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: var(--transicion);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.navbar__drawer-close:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar__drawer-links {
+  list-style: none;
+  padding: 1.5rem;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.navbar__drawer-links li {
+  list-style: none;
+}
+
+.navbar__drawer-links a {
+  display: block;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  transition: var(--transicion);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.navbar__drawer-links a:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+.navbar__drawer-links a.active-link {
+  background: rgba(204, 0, 0, 0.2);
+  color: white;
+}
+
+/* ============================================
    RESPONSIVE NAVBAR
    ============================================ */
    
 @media (max-width: 768px) {
   .navbar__toggle {
-    display: block;
+    display: flex;
   }
 
   .navbar__links {
     display: none;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.8rem;
-    padding: 1rem;
-    background: rgba(18, 18, 18, 0.95);
-    border-radius: 0 0 16px 16px;
-  }
-
-  .navbar__links--open {
-    display: flex;
-  }
-
-  .navbar__links li {
-    width: 100%;
-    text-align: center;
-  }
-
-  .navbar__links a {
-    display: block;
-    padding: 0.8rem 1rem;
   }
 }
 
