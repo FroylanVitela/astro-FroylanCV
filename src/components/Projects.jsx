@@ -1,12 +1,8 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import { getTranslation } from "../utils/i18n";
 import "../styles/global.css";
 
-// Estructura de carpetas:
-// /public/images/projects/[project-id]/1.jpg
-// /public/images/projects/[project-id]/2.jpg
-// etc.
 
 const proyectos = [
   {
@@ -17,8 +13,8 @@ const proyectos = [
     category: "Web App",
     tipo: "school",
     liveUrl: null,
-    githubUrl: null,
-    imageCount: 0 // TODO: Cambiar al número de imágenes que agregues
+    imageCount: 11,
+    imageExt: "png"
   },
   {
     id: "vitela-warehouse",
@@ -28,8 +24,8 @@ const proyectos = [
     category: "Web App",
     tipo: "internal",
     liveUrl: null,
-    githubUrl: null,
-    imageCount: 0
+    imageCount: 4,
+    imageExt: "png"
   },
   {
     id: "vitelas-website",
@@ -38,11 +34,11 @@ const proyectos = [
     tech: ["React", "Netlify"],
     category: "Website",
     tipo: "official",
-    liveUrl: "https://vitelas.com",
-    githubUrl: null,
-    imageCount: 1
+    liveUrl: "https://vitelas.netlify.app/",
+    imageCount: 10,
+    imageExt: "png"
   },
-  {
+  /* {
     id: "gamezone",
     titleKey: "projects.gamezone.title",
     descKey: "projects.gamezone.description",
@@ -50,9 +46,8 @@ const proyectos = [
     category: "E-commerce",
     tipo: "school",
     liveUrl: null,
-    githubUrl: null,
     imageCount: 0
-  },
+  }, */
   {
     id: "jatco-inventory",
     titleKey: "projects.jatcoInventory.title",
@@ -61,8 +56,8 @@ const proyectos = [
     category: "Desktop App",
     tipo: "internal",
     liveUrl: null,
-    githubUrl: null,
-    imageCount: 0
+    imageCount: 12,
+    imageExt: "png"
   },
   {
     id: "itotal",
@@ -72,66 +67,71 @@ const proyectos = [
     category: "Enterprise",
     tipo: "internal",
     liveUrl: null,
-    githubUrl: null,
-    imageCount: 0
+    imageCount: 15,
+    imageExt: "jpeg"
   }
 ];
 
-// Componente de carrusel individual
-function ImageCarousel({ projectId, imageCount }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+// Componente de imagen estática individual
+function ImageCarousel({ projectId, imageCount, imageExt }) {
+  const [index, setIndex] = useState(0);
 
   if (imageCount === 0) {
     return (
       <div className="proyectos__imagen">
         <span style={{ fontSize: "2rem" }}>📁</span>
-        <span>// TODO: Agregar imágenes</span>
+        <span>// Agrega imágenes a: /images/projects/{projectId}/</span>
+        <span style={{ fontSize: "0.65rem", marginTop: "4px" }}>Nombra: 1.jpg, 2.jpg, etc.</span>
       </div>
     );
   }
 
-  const goToPrev = (e) => {
-    e.stopPropagation();
-    setCurrentIndex((prev) => (prev === 0 ? imageCount - 1 : prev - 1));
+  // Precarga ligera de la siguiente y anterior imagen
+  useEffect(() => {
+    if (imageCount <= 1) return;
+    const nextIndex = (index + 1) % imageCount;
+    const prevIndex = index === 0 ? imageCount - 1 : index - 1;
+
+    const nextImg = new Image();
+    nextImg.src = `/images/projects/${projectId}/${nextIndex + 1}.${imageExt}`;
+    const prevImg = new Image();
+    prevImg.src = `/images/projects/${projectId}/${prevIndex + 1}.${imageExt}`;
+  }, [index, projectId, imageCount, imageExt]);
+
+  const goPrev = (e) => {
+    e?.stopPropagation();
+    setIndex((i) => (i === 0 ? imageCount - 1 : i - 1));
   };
 
-  const goToNext = (e) => {
-    e.stopPropagation();
-    setCurrentIndex((prev) => (prev === imageCount - 1 ? 0 : prev + 1));
+  const goNext = (e) => {
+    e?.stopPropagation();
+    setIndex((i) => (i === imageCount - 1 ? 0 : i + 1));
   };
 
   return (
     <div className="proyectos__imagen proyectos__imagen--carousel">
-      <AnimatePresence mode="wait">
-        <motion.img
-          key={currentIndex}
-          src={`/images/projects/${projectId}/${currentIndex + 1}.jpg`}
-          alt={`${projectId} - ${currentIndex + 1}`}
-          className="proyectos__carousel-img"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.3 }}
-        />
-      </AnimatePresence>
+      <img
+        src={`/images/projects/${projectId}/${index + 1}.${imageExt}`}
+        alt={`${projectId} - ${index + 1}`}
+        className="proyectos__carousel-img"
+        loading="lazy"
+        onError={() => { /* si falla, no hacemos reintentos automáticos */ }}
+      />
 
       {imageCount > 1 && (
         <>
-          <button className="proyectos__carousel-btn proyectos__carousel-btn--prev" onClick={goToPrev}>
+          <button className="proyectos__carousel-btn proyectos__carousel-btn--prev" onClick={goPrev} aria-label="Anterior">
             ‹
           </button>
-          <button className="proyectos__carousel-btn proyectos__carousel-btn--next" onClick={goToNext}>
+          <button className="proyectos__carousel-btn proyectos__carousel-btn--next" onClick={goNext} aria-label="Siguiente">
             ›
           </button>
           <div className="proyectos__carousel-dots">
             {Array.from({ length: imageCount }).map((_, idx) => (
               <span
                 key={idx}
-                className={`proyectos__carousel-dot ${idx === currentIndex ? "active" : ""}`}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setCurrentIndex(idx);
-                }}
+                className={`proyectos__carousel-dot ${idx === index ? "active" : ""}`}
+                onClick={(e) => { e.stopPropagation(); setIndex(idx); }}
               />
             ))}
           </div>
@@ -143,7 +143,6 @@ function ImageCarousel({ projectId, imageCount }) {
 
 export default function Projects() {
   const [lang, setLang] = useState("es");
-  const [detectedCounts, setDetectedCounts] = useState({});
 
   useEffect(() => {
     const savedLang = localStorage.getItem("language") || "es";
@@ -155,45 +154,6 @@ export default function Projects() {
 
     window.addEventListener("languageChanged", handleLanguageChange);
     return () => window.removeEventListener("languageChanged", handleLanguageChange);
-  }, []);
-
-  useEffect(() => {
-    // Detect images present in public/images/projects/<projectId>/ by checking common extensions.
-    const exts = ["jpg", "jpeg", "png", "webp"];
-    const maxPerProject = 8;
-
-    async function detectAll() {
-      const results = {};
-      for (const proyecto of proyectos) {
-        if (proyecto.imageCount && proyecto.imageCount > 0) {
-          results[proyecto.id] = proyecto.imageCount;
-          continue;
-        }
-
-        let count = 0;
-        for (let i = 1; i <= maxPerProject; i++) {
-          let found = false;
-          for (const ext of exts) {
-            const url = `/images/projects/${proyecto.id}/${i}.${ext}`;
-            try {
-              const res = await fetch(url, { method: "HEAD" });
-              if (res.ok) {
-                found = true;
-                break;
-              }
-            } catch (e) {
-              // ignore fetch errors and continue trying other extensions
-            }
-          }
-          if (found) count++;
-          else break;
-        }
-        results[proyecto.id] = count;
-      }
-      setDetectedCounts(results);
-    }
-
-    detectAll();
   }, []);
 
   const getTipoLabel = (tipo) => {
@@ -237,7 +197,8 @@ export default function Projects() {
               {/* Carrusel de imágenes */}
               <ImageCarousel
                 projectId={proyecto.id}
-                imageCount={detectedCounts[proyecto.id] ?? proyecto.imageCount}
+                imageCount={proyecto.imageCount}
+                imageExt={proyecto.imageExt || "png"}
               />
 
               <span className="proyectos__categoria">{proyecto.category}</span>

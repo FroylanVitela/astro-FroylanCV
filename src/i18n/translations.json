@@ -36,8 +36,9 @@
                 {
                     "empresa": "Electronic Cats - Automatización de Procesos",
                     "descripcion": [
-                        "Automatización de procesos internos con Make, Airtable, n8n y Discord Webhooks",
-                        "Implementación de flujos de ventas, notificaciones y CRM"
+                        "Automatización con Make, Airtable, n8n y Discord Webhooks",
+                        "Desarrollo de flujos de ventas, CRM y notificaciones automatizadas",
+                        "Documentación de procesos y trabajo bajo metodología ágil"
                     ],
                     "fecha": "ENE 2025 - ABR 2025"
                 },
@@ -137,11 +138,19 @@
         "certifications": {
             "title": "Cursos y Certificaciones",
             "downloadCertificate": "Descargar comprobante",
+            "noCertificate": "Sin comprobante disponible",
             "items": [
+                {
+                    "titulo": "Certificado de Iniciación al Desarrollo con IA",
+                    "institucion": "BIG school",
+                    "fecha": "2026",
+                    "comprobante": "/doc/Certificado-Victor-Froylan-Vitela-Cuevas-56xjb9gu.pdf"
+                },
                 {
                     "titulo": "Certificado en SCRUM Fundamentals",
                     "institucion": "SCRUMstudy",
-                    "fecha": "2025"
+                    "fecha": "2025",
+                    "comprobante": "/doc/ScrumFundamentalsCertified-FroylanVitela-1072655.pdf"
                 },
                 {
                     "titulo": "Curso completo de HTML, CSS y JavaScript",
@@ -201,8 +210,9 @@
                 {
                     "empresa": "Electronic Cats - Process Automation",
                     "descripcion": [
-                        "Internal process automation with Make, Airtable, n8n and Discord Webhooks",
-                        "Implementation of sales flows, notifications and CRM"
+                        "Automation with Make, Airtable, n8n and Discord Webhooks",
+                        "Development of sales flows, CRM and automated notifications",
+                        "Process documentation and working under Agile methodology"
                     ],
                     "fecha": "JAN 2025 - APR 2025"
                 },
@@ -291,11 +301,19 @@
         "certifications": {
             "title": "Courses and Certifications",
             "downloadCertificate": "Download Certificate",
+            "noCertificate": "No certificate available",
             "items": [
+                {
+                    "titulo": "AI Development Initiation Certificate",
+                    "institucion": "BIG school",
+                    "fecha": "2026",
+                    "comprobante": "/doc/Certificado-Victor-Froylan-Vitela-Cuevas-56xjb9gu.pdf"
+                },
                 {
                     "titulo": "Certified in SCRUM Fundamentals",
                     "institucion": "SCRUMstudy",
-                    "fecha": "2025"
+                    "fecha": "2025",
+                    "comprobante": "/doc/ScrumFundamentalsCertified-FroylanVitela-1072655.pdf"
                 },
                 {
                     "titulo": "Complete HTML, CSS and JavaScript Course",

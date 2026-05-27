@@ -20,14 +20,14 @@ export default function Certifications() {
   }, []);
 
   const logos = [
+    "https://s3-eu-west-1.amazonaws.com/tpd/logos/675db4f888bd057610706073/0x0.png",
     "https://cas-training.com/wp-content/uploads/2025/11/logo-curso-scrumstudy-width-500px-1-1-1-1-1.png",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9dWT2-BHSMzY6KkUIRwWW0PRsJorfp43aHQ&s"
   ];
 
   const cursos = translations[lang].certifications.items.map((item, index) => ({
     ...item,
-    logo: logos[index],
-    comprobante: index === 0 ? "/doc/ScrumFundamentalsCertified-FroylanVitela-1072655.pdf" : null
+    logo: logos[index]
   }));
 
   return (
@@ -64,7 +64,7 @@ export default function Certifications() {
               <div className="certificaciones__contenido">
                 <strong>{curso.titulo}</strong>
                 <p>{curso.institucion} — {curso.fecha}</p>
-                {curso.comprobante && (
+                {curso.comprobante ? (
                   <a
                     href={curso.comprobante}
                     download
@@ -72,6 +72,14 @@ export default function Certifications() {
                   >
                     {getTranslation("certifications.downloadCertificate", lang)}
                   </a>
+                ) : (
+                  <button
+                    type="button"
+                    className="boton-descarga boton-descarga--mini"
+                    disabled
+                  >
+                    {getTranslation("certifications.noCertificate", lang)}
+                  </button>
                 )}
               </div>
             </motion.li>

@@ -33,11 +33,6 @@ export default function Contact() {
       .catch((error) => console.error("Error al enviar:", error));
   };
 
-  const descargarCV = () => {
-    // Abrir el HTML del CV en una nueva pestaña para guardar como PDF
-    window.open('/doc/CV-Generado.html', '_blank');
-  };
-
   return (
     <section className="contacto" id="contacto">
       <div className="contacto__contenedor">
@@ -71,12 +66,13 @@ export default function Contact() {
         </div>
 
         <div className="contacto__cv">
-          <button
-            onClick={descargarCV}
+          <a
+            href={lang === "es" ? "/doc/VFVC CV.pdf" : "/doc/VFVC CV EN.pdf"}
+            download={lang === "es" ? "CV-Froylan-Vitela.pdf" : "CV-Froylan-Vitela-EN.pdf"}
             className="boton-descarga"
           >
             📄 {getTranslation("contact.downloadCV", lang)}
-          </button>
+          </a>
         </div>
 
         <footer className="contacto__footer">
