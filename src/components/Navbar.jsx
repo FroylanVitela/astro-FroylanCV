@@ -19,7 +19,17 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("inicio");
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const [lang, setLang] = useState("es");
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     const savedLang = localStorage.getItem("language") || "es";
@@ -69,19 +79,21 @@ export default function Navbar() {
 
   // Scroll suave al hacer clic
   useEffect(() => {
-    const links = document.querySelectorAll('.navbar__links a[href^="#"]');
     const handleClick = (e) => {
-      e.preventDefault();
-      const targetId = e.currentTarget.getAttribute("href").substring(1);
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: "smooth" });
-        setMenuOpen(false);
+      const link = e.target.closest('a[href^="#"]');
+      if (link) {
+        e.preventDefault();
+        const targetId = link.getAttribute("href").substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: "smooth" });
+          setMenuOpen(false);
+        }
       }
     };
 
-    links.forEach((link) => link.addEventListener("click", handleClick));
-    return () => links.forEach((link) => link.removeEventListener("click", handleClick));
+    document.addEventListener("click", handleClick);
+    return () => document.removeEventListener("click", handleClick);
   }, []);
 
   // Bloquear scroll cuando el menú está abierto
@@ -117,25 +129,46 @@ export default function Navbar() {
       >
         <div className="navbar__container">
           <div className="navbar__logo">ISC. Froylán Vitela</div>
+          
+          {/* Desktop: Enlaces horizontales */}
+          {!isMobile && (
+            <ul className="navbar__links">
+              {sections.map((id) => (
+                <li key={id}>
+                  <a
+                    href={`#${id}`}
+                    className={activeSection === id ? "active-link" : ""}
+                  >
+                    {getTranslation(sectionKeys[id], lang)}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+
           <div className="navbar__actions">
             <LanguageSwitcher />
-            <button 
-              className={`navbar__toggle ${menuOpen ? "navbar__toggle--open" : ""}`}
-              onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Toggle menu"
-              aria-expanded={menuOpen}
-            >
-              <span className="navbar__toggle-line"></span>
-              <span className="navbar__toggle-line"></span>
-              <span className="navbar__toggle-line"></span>
-            </button>
+            
+            {/* Mobile: Botón hamburguesa */}
+            {isMobile && (
+              <button 
+                className={`navbar__toggle ${menuOpen ? "navbar__toggle--open" : ""}`}
+                onClick={() => setMenuOpen(!menuOpen)}
+                aria-label="Toggle menu"
+                aria-expanded={menuOpen}
+              >
+                <span className="navbar__toggle-line"></span>
+                <span className="navbar__toggle-line"></span>
+                <span className="navbar__toggle-line"></span>
+              </button>
+            )}
           </div>
         </div>
       </motion.nav>
 
-      {/* Overlay oscuro detrás del menú */}
+      {/* Overlay oscuro detrás del menú (solo móvil) */}
       <AnimatePresence>
-        {menuOpen && (
+        {menuOpen && isMobile && (
           <motion.div
             className="navbar__overlay"
             initial={{ opacity: 0 }}
@@ -146,9 +179,9 @@ export default function Navbar() {
         )}
       </AnimatePresence>
 
-      {/* Menú drawer desde la derecha */}
+      {/* Menú drawer desde la derecha (solo móvil) */}
       <AnimatePresence>
-        {menuOpen && (
+        {menuOpen && isMobile && (
           <motion.div
             className="navbar__drawer"
             initial={{ x: "100%" }}

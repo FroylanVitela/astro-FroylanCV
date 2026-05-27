@@ -149,21 +149,28 @@ body {
   line-height: 1.7;
 }
 
-/* Wave bottom for presentation */
+/* Wave bottom for presentation - Smooth curve */
 .presentacion .wave-bottom {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  overflow: hidden;
+  overflow: visible;
   line-height: 0;
+  height: 120px; /* espacio para la ola */
+  pointer-events: none;
+  z-index: 0; /* mantener contenido por encima */
 }
 
 .presentacion .wave-bottom svg {
-  position: relative;
+  position: absolute;
+  bottom: 0;
+  left: 0;
   display: block;
-  width: calc(100% + 1.5px);
-  height: 100px;
+  width: 100%;
+  height: 120px;
+  transform: translateY(1px);
+  fill: var(--fondo-claro); /* usa la variable para consistencia */
 }
 
 /* ============================================
@@ -805,7 +812,6 @@ body {
 .proyectos__imagen {
   width: 100%;
   height: 200px;
-  object-fit: cover;
   background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
   display: flex;
   align-items: center;
@@ -813,6 +819,7 @@ body {
   color: rgba(255, 255, 255, 0.3);
   font-size: 3rem;
   position: relative;
+  overflow: hidden;
 }
 
 .proyectos__imagen span {
@@ -824,6 +831,81 @@ body {
   background: rgba(0, 0, 0, 0.5);
   padding: 4px 8px;
   border-radius: 4px;
+  z-index: 2;
+}
+
+/* Carrusel de imágenes */
+.proyectos__imagen--carousel {
+  position: relative;
+}
+
+.proyectos__carousel-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.proyectos__carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transicion);
+  z-index: 3;
+  opacity: 0;
+}
+
+.proyectos__tarjeta:hover .proyectos__carousel-btn {
+  opacity: 1;
+}
+
+.proyectos__carousel-btn:hover {
+  background: rgba(204, 0, 0, 0.8);
+}
+
+.proyectos__carousel-btn--prev {
+  left: 10px;
+}
+
+.proyectos__carousel-btn--next {
+  right: 10px;
+}
+
+.proyectos__carousel-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 3;
+}
+
+.proyectos__carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: var(--transicion);
+}
+
+.proyectos__carousel-dot.active {
+  background: var(--rojo);
+  transform: scale(1.2);
 }
 
 .proyectos__contenido {

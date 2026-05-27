@@ -20,7 +20,7 @@ export default function Certifications() {
   }, []);
 
   const logos = [
-    "https://edinburghagile.com/wp-content/uploads/2020/09/scrumstudy-logo.jpg",
+    "https://cas-training.com/wp-content/uploads/2025/11/logo-curso-scrumstudy-width-500px-1-1-1-1-1.png",
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9dWT2-BHSMzY6KkUIRwWW0PRsJorfp43aHQ&s"
   ];
 

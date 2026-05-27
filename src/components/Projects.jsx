@@ -1,11 +1,12 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { getTranslation } from "../utils/i18n";
 import "../styles/global.css";
 
-// TODO: Replace placeholder images with your actual project screenshots
-// Place images in /public/images/projects/ folder
-// Image paths should be: /images/projects/stellar-stock.jpg (example)
+// Estructura de carpetas:
+// /public/images/projects/[project-id]/1.jpg
+// /public/images/projects/[project-id]/2.jpg
+// etc.
 
 const proyectos = [
   {
@@ -14,9 +15,10 @@ const proyectos = [
     descKey: "projects.stellarStock.description",
     tech: ["React", "Node.js", "Express", "MongoDB", "Vercel"],
     category: "Web App",
-    tipo: "school", // proyecto escolar
+    tipo: "school",
     liveUrl: null,
-    githubUrl: null
+    githubUrl: null,
+    imageCount: 0 // TODO: Cambiar al número de imágenes que agregues
   },
   {
     id: "vitela-warehouse",
@@ -24,9 +26,10 @@ const proyectos = [
     descKey: "projects.vitelaWarehouse.description",
     tech: ["React", "Airtable", "Vercel"],
     category: "Web App",
-    tipo: "internal", // proyecto interno
+    tipo: "internal",
     liveUrl: null,
-    githubUrl: null
+    githubUrl: null,
+    imageCount: 0
   },
   {
     id: "vitelas-website",
@@ -34,9 +37,10 @@ const proyectos = [
     descKey: "projects.vitelasWebsite.description",
     tech: ["React", "Netlify"],
     category: "Website",
-    tipo: "official", // sitio oficial Vitela's
+    tipo: "official",
     liveUrl: "https://vitelas.com",
-    githubUrl: null
+    githubUrl: null,
+    imageCount: 1
   },
   {
     id: "gamezone",
@@ -44,9 +48,10 @@ const proyectos = [
     descKey: "projects.gamezone.description",
     tech: ["React", "Node.js", "Express", "MongoDB"],
     category: "E-commerce",
-    tipo: "school", // proyecto escolar
+    tipo: "school",
     liveUrl: null,
-    githubUrl: null
+    githubUrl: null,
+    imageCount: 0
   },
   {
     id: "jatco-inventory",
@@ -54,24 +59,91 @@ const proyectos = [
     descKey: "projects.jatcoInventory.description",
     tech: ["Excel", "VBA", "Access", "SQL"],
     category: "Desktop App",
-    tipo: "internal", // proyecto interno
+    tipo: "internal",
     liveUrl: null,
-    githubUrl: null
+    githubUrl: null,
+    imageCount: 0
   },
   {
-    id: "survey-system",
-    titleKey: "projects.surveySystem.title",
-    descKey: "projects.surveySystem.description",
+    id: "itotal",
+    titleKey: "projects.itotal.title",
+    descKey: "projects.itotal.description",
     tech: ["Oracle Apex", "PL/SQL", "Oracle DB"],
     category: "Enterprise",
-    tipo: "school", // proyecto escolar
+    tipo: "internal",
     liveUrl: null,
-    githubUrl: null
+    githubUrl: null,
+    imageCount: 0
   }
 ];
 
+// Componente de carrusel individual
+function ImageCarousel({ projectId, imageCount }) {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  if (imageCount === 0) {
+    return (
+      <div className="proyectos__imagen">
+        <span style={{ fontSize: "2rem" }}>📁</span>
+        <span>// TODO: Agregar imágenes</span>
+      </div>
+    );
+  }
+
+  const goToPrev = (e) => {
+    e.stopPropagation();
+    setCurrentIndex((prev) => (prev === 0 ? imageCount - 1 : prev - 1));
+  };
+
+  const goToNext = (e) => {
+    e.stopPropagation();
+    setCurrentIndex((prev) => (prev === imageCount - 1 ? 0 : prev + 1));
+  };
+
+  return (
+    <div className="proyectos__imagen proyectos__imagen--carousel">
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={currentIndex}
+          src={`/images/projects/${projectId}/${currentIndex + 1}.jpg`}
+          alt={`${projectId} - ${currentIndex + 1}`}
+          className="proyectos__carousel-img"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        />
+      </AnimatePresence>
+
+      {imageCount > 1 && (
+        <>
+          <button className="proyectos__carousel-btn proyectos__carousel-btn--prev" onClick={goToPrev}>
+            ‹
+          </button>
+          <button className="proyectos__carousel-btn proyectos__carousel-btn--next" onClick={goToNext}>
+            ›
+          </button>
+          <div className="proyectos__carousel-dots">
+            {Array.from({ length: imageCount }).map((_, idx) => (
+              <span
+                key={idx}
+                className={`proyectos__carousel-dot ${idx === currentIndex ? "active" : ""}`}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setCurrentIndex(idx);
+                }}
+              />
+            ))}
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
 export default function Projects() {
   const [lang, setLang] = useState("es");
+  const [detectedCounts, setDetectedCounts] = useState({});
 
   useEffect(() => {
     const savedLang = localStorage.getItem("language") || "es";
@@ -83,6 +155,45 @@ export default function Projects() {
 
     window.addEventListener("languageChanged", handleLanguageChange);
     return () => window.removeEventListener("languageChanged", handleLanguageChange);
+  }, []);
+
+  useEffect(() => {
+    // Detect images present in public/images/projects/<projectId>/ by checking common extensions.
+    const exts = ["jpg", "jpeg", "png", "webp"];
+    const maxPerProject = 8;
+
+    async function detectAll() {
+      const results = {};
+      for (const proyecto of proyectos) {
+        if (proyecto.imageCount && proyecto.imageCount > 0) {
+          results[proyecto.id] = proyecto.imageCount;
+          continue;
+        }
+
+        let count = 0;
+        for (let i = 1; i <= maxPerProject; i++) {
+          let found = false;
+          for (const ext of exts) {
+            const url = `/images/projects/${proyecto.id}/${i}.${ext}`;
+            try {
+              const res = await fetch(url, { method: "HEAD" });
+              if (res.ok) {
+                found = true;
+                break;
+              }
+            } catch (e) {
+              // ignore fetch errors and continue trying other extensions
+            }
+          }
+          if (found) count++;
+          else break;
+        }
+        results[proyecto.id] = count;
+      }
+      setDetectedCounts(results);
+    }
+
+    detectAll();
   }, []);
 
   const getTipoLabel = (tipo) => {
@@ -123,14 +234,13 @@ export default function Projects() {
               viewport={{ once: true }}
               whileHover={{ y: -8 }}
             >
-              {/* Project Image - Placeholder with comment */}
-              <div className="proyectos__imagen">
-                {/* TODO: Replace placeholder with your project screenshot */}
-                {/* Place image in: /public/images/projects/[project-id].jpg or .png */}
-                <span style={{ fontSize: "2rem" }}>📁</span>
-                <span>// TODO: Add screenshot</span>
-                <span className="proyectos__categoria">{proyecto.category}</span>
-              </div>
+              {/* Carrusel de imágenes */}
+              <ImageCarousel
+                projectId={proyecto.id}
+                imageCount={detectedCounts[proyecto.id] ?? proyecto.imageCount}
+              />
+
+              <span className="proyectos__categoria">{proyecto.category}</span>
 
               <div className="proyectos__contenido">
                 <h3 className="proyectos__titulo">
@@ -150,9 +260,9 @@ export default function Projects() {
 
                 <div className="proyectos__enlaces">
                   {proyecto.liveUrl ? (
-                    <a 
-                      href={proyecto.liveUrl} 
-                      target="_blank" 
+                    <a
+                      href={proyecto.liveUrl}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="proyectos__btn-primary"
                     >

@@ -24,6 +24,7 @@ export default function Experience() {
     "https://electroniccats.com/openhardwaremonth/static/logo_electroniccats-c14f4b90646a1705f118e69f56070c40.png",
     "https://qmcmex.com/public/imgs/logos/QMCB.png",
     "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Jatco_logo.svg/250px-Jatco_logo.svg.png",
+    "https://static.wixstatic.com/media/fd477a_3be0430bc1c542afb344edb30b0f4bff~mv2_d_3300_2550_s_4_2.png/v1/crop/x_0,y_528,w_3300,h_1193/fill/w_300,h_110,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/fd477a_3be0430bc1c542afb344edb30b0f4bff~mv2_d_3300_2550_s_4_2.png",
     "https://cdn-icons-png.flaticon.com/512/1995/1995437.png"
   ];
 

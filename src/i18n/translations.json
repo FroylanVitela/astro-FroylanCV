@@ -59,6 +59,17 @@
                     "fecha": "SEP 2025 - DIC 2025"
                 },
                 {
+                    "empresa": "ITOTAL, S.A. de C.V. - Ingeniero de Desarrollo de Software",
+                    "descripcion": [
+                        "Diseñé y desarrollé un sistema empresarial de administración de encuestas utilizando Oracle Database, PL/SQL y Oracle APEX",
+                        "Construí la arquitectura completa de la solución, desde el modelo de datos hasta la interfaz web y los dashboards de análisis",
+                        "Implementé módulos para gestión de clientes, proyectos, encuestas, participantes y reportes estadísticos",
+                        "Desarrollé validaciones y lógica de negocio para garantizar integridad, trazabilidad y escalabilidad de la información",
+                        "Generé documentación técnica, pruebas funcionales y despliegue de la aplicación en entorno empresarial"
+                    ],
+                    "fecha": "FEB 2026 - MAY 2026"
+                },
+                {
                     "empresa": "Dev Freelance - Desarrollo Web",
                     "descripcion": [
                         "Diseño y desarrollo de sitios web responsivos y totalmente funcionales",
@@ -94,6 +105,10 @@
             "internalProject": "Proyecto interno",
             "schoolProject": "Proyecto escolar",
             "visitWebsite": "Visitar sitio",
+            "itotal": {
+                "title": "Sistema de Encuestas ITOTAL",
+                "description": "Sistema empresarial de administración de encuestas desarrollado con Oracle Database, PL/SQL y Oracle APEX. Incluye gestión de clientes, proyectos, encuestas con diversos tipos de preguntas, participantes y dashboard con gráficos estadísticos."
+            },
             "stellarStock": {
                 "title": "Stellar Stock",
                 "description": "Simulación de un almacén de supermercado y punto de venta desarrollado con tecnología MERN. Incluye gestión de inventario, ventas, reportes y panel de administración."
@@ -244,6 +259,10 @@
             "internalProject": "Internal project",
             "schoolProject": "School project",
             "visitWebsite": "Visit website",
+            "itotal": {
+                "title": "ITOTAL Survey System",
+                "description": "Enterprise survey administration system developed with Oracle Database, PL/SQL and Oracle APEX. Includes client management, projects, surveys with various question types, participants and statistical dashboard with charts."
+            },
             "stellarStock": {
                 "title": "Stellar Stock",
                 "description": "Supermarket warehouse and point of sale simulation developed with MERN technology. Includes inventory management, sales, reports, and admin panel."
