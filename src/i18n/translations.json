@@ -115,7 +115,7 @@
                 "description": "Simulación de un almacén de supermercado y punto de venta desarrollado con tecnología MERN. Incluye gestión de inventario, ventas, reportes y panel de administración."
             },
             "vitelaWarehouse": {
-                "title": "Mi Almacén (Vitela)",
+                "title": "Mi Almacén (Parte de Vitela's)",
                 "description": "Sistema de gestión de almacén para mi negocio Vitela's. Desarrollado con React para el frontend y Airtable como backend, incluyendo controladores, routers y middleware personalizados."
             },
             "vitelasWebsite": {
